@@ -20,11 +20,10 @@ export async function getAllExperiences(req,res){
     try {
         const userId = req.params.userId
         const details = await Experience.findOne({userId : userId})
-
         res.json(details)
     } catch (error) {
         res.json({
-            message : "cannot fetch users",
+            message : "cannot fetch experiences",
             error : error.message
         })
     }

@@ -6,7 +6,7 @@ import Skills from "../models/skillsModel.js";
  */
 export async function createSkills(req, res) {
     try {
-        console.log("Received Request Data:", req.body); // Debugging log
+
 
         const { userId, cvId, skills } = req.body;
 
@@ -43,8 +43,6 @@ export async function createSkills(req, res) {
 export async function getSkills(req, res) {
     try {
         const { userId } = req.params;
-
-        console.log("Fetching skills for userId:", userId); // Debugging log
 
         if (!userId) {
             return res.status(400).json({ message: "User ID is required" });
