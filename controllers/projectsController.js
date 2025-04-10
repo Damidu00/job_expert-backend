@@ -17,3 +17,16 @@ export async function createProjects(req,res){
     }
     
 }
+
+export async function getAllProjects(req,res) {
+    try {
+        const userId = req.params.userId
+        const allprojects = await Projects.findOne({userId : userId})
+        res.json(allprojects)
+    } catch (error) {
+        res.status(500).json({
+            error : error.message,
+            message : "cannot fetch projects"
+        })
+    }
+}
