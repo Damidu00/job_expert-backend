@@ -7,26 +7,28 @@ export async function createReferee(req, res) {
     await referee.save();
 
     res.json({
-        message : "referees created"
-    })
+      message: "referees created",
+    });
   } catch (error) {
     res.json({
-        message : "error to create referees",
-        error: error.message
-    })
+      message: "error to create referees",
+      error: error.message,
+    });
   }
 }
 
-export async function getAllReferess(req,res){
-    try {
-        const userId = req.params.userId
-        const referees = await Referees.findOne({userId : userId})
+export async function getAllReferess(req, res) {
+  try {
+    const userId = req.params.userId;
+    const referees = await Referees.findOne({ userId: userId }).sort({
+      _id: -1,
+    });
 
-        res.json(referees)
-    } catch (error) {
-        res.json({
-            message : "error to fetch referees",
-            error : error.message
-        })
-    }
+    res.json(referees);
+  } catch (error) {
+    res.json({
+      message: "error to fetch referees",
+      error: error.message,
+    });
+  }
 }

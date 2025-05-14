@@ -5,6 +5,7 @@ import {
   getAllDetails,
   getcvUserById,
   getcvUsers,
+  updatUserCvID,
   updateCertificate,
   updateCvUserDetails,
   updateEducation,
@@ -12,13 +13,12 @@ import {
   updateProjects,
   updateReferees,
   updateUserSkills,
-  updatUserCvID,
   upload,
 } from "../controllers/cvUserControllers.js";
 
 const cvUserRoutes = express.Router();
 
-cvUserRoutes.post("/", createCvUserDetails);
+cvUserRoutes.post("/", upload, createCvUserDetails);
 cvUserRoutes.get("/:userId", getcvUsers);
 cvUserRoutes.delete("/:userId", deletecvuser);
 cvUserRoutes.get("/UserAllCv/:userId", getAllDetails);
