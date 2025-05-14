@@ -14,7 +14,7 @@ export const getAllJobs = async (req, res) => {
     }
 };
 
-// Get jobs created by admin
+//  Get jobs created by admin
 export const getAdminJobs = async (req, res) => {
     try {
         const adminId = req.user.id; // Assuming middleware sets req.user
@@ -29,7 +29,7 @@ export const getAdminJobs = async (req, res) => {
     }
 };
 
-// Get job by ID
+// Get job  by ID
 export const getJobById = async (req, res) => {
     try {
         const job = await Job.findById(req.params.id)
